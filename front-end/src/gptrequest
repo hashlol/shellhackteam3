@@ -1,0 +1,42 @@
+import OpenAI from "openai";
+
+
+const openai = new OpenAI({
+  apiKey: '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', // defaults to process.env["OPENAI_API_KEY"]
+});
+
+async function main(msg) {
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: 'user', content: "what is android" }],
+    model: 'gpt-3.5-turbo',
+  });
+
+  console.log(completion.choices[0].message.content);
+}
+
+export function req(msg){
+    main(msg)
+}
+
+
+
+
+// const configuration = new Configuration({
+//     organization: "org-1ebIUUY4fu1TSQ0WMfssWWqQ",
+//     apiKey: "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",
+  
+//   });
+  
+//   const opeai = new OpenAIApi(configuration);
+  
+//   const completioin = await opeai.createChatCompletion({
+//     model: "gpt-3.5-turbo",
+//     messeges: [
+//       {role: "user", content:"hello world"},
+//     ] 
+//   });
+  
+//   console.log(completioin.data.choices[0].messege);
+  
+  
+  

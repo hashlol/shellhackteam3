@@ -1,5 +1,6 @@
 import { onSnapshot, collection, setDoc, doc, addDoc, deleteDoc, getDocs } from "@firebase/firestore";
 import { useEffect, useState } from "react";
+import OpenAI from "openai";
 import db from "./firebase";
 
 export function GetDataStream() {
@@ -47,6 +48,23 @@ export const setFile = async (id, name) => {
   const docRef = doc(db, "users", id);
   const payload = { Name: name };
   await setDoc(docRef, payload)
+}
+
+const openai = new OpenAI({
+  apiKey: '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',dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
+});
+
+async function main(msg) {
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: 'user', content: msg }],
+    model: 'gpt-3.5-turbo',
+  });
+
+  console.log(completion.choices[0].message.content);
+}
+
+export function req(msg){
+    main(msg)
 }
 
 

@@ -1,16 +1,27 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import {req} from "./../BackEndFuncs"
+const App = () => {
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
 
-export default function () {
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Browser doesn't support speech recognition.</span>;
+  }
+
   return (
-    <div classname = 'button-container'>
-      <h2>Page 2</h2>
-      
-      <form action="https://youtu.be/dQw4w9WgXcQ?si=lkIU9WNTc1jrGOOU">
-        <input type="submit" value="DO NOT CLICK" className = 'button-link' />
-      </form>
-  
+    <div>
+      <p>Microphone: {listening ? 'on' : 'off'}</p>
+      <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button onClick={resetTranscript}>Reset</button>
+      <button onClick={() => req(transcript)}>get answer</button>
+      <p>{transcript}</p>
     </div>
   );
-}
-
+};
+export default App;
