@@ -1,0 +1,211 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* NAVBAR */
+/* ------------------------------------------------------------------ */
+nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+
+}
+
+.nav-title{
+  font-size: 1.5rem;
+  margin: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color:white;
+}
+
+.nav-ul{
+  display:flex;
+}
+.nav-ul-li{
+  list-style:none;
+}
+.nav-ul-li{
+  display:block;
+  text-decoration: none;
+  color:white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+
+}
+/* NAVBAR */
+/* ------------------------------------------------------------------ */
+
+/* Names */
+/* ------------------------------------------------------------------ */
+ul.names{
+  list-style-type: square;
+  position: absolute;
+  left: 20px;
+  
+}
+/* Names */
+/* ------------------------------------------------------------------ */
+
+
+/* BUTTONS */
+/* ------------------------------------------------------------------ */
+.button-link{
+  display: inline-block; 
+  margin-right: 10px; 
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 4px; 
+  text-decoration: none; 
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
+  border: 1px solid #ffffff;
+}
+
+.button-link:hover {
+  color: #007bff;
+  background-color: #ffffff;
+  border: 1px solid #007bff;
+
+}
+.button-link:not(:last-child) {
+  margin-right: 20px; 
+}
+
+.button-container {
+  display: flex; 
+  right: 90px;
+  gap: 10px; 
+}
+
+/* BUTTONS */
+/* ------------------------------------------------------------------ */
+
+
+/* input bar */
+input {
+  margin-top:20px;
+  width: 20%;
+  padding: 1px;
+  font-size: 12px;
+  position:absolute;
+  border: 13x solid #007bff;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+input:hover {
+  border-color: #007bff;
+}
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+input[type="text"] {
+  color: #333;
+}
+.container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  gap: 2rem;
+
+}
+.input {
+  width: 100%;
+  max-width: 300px; 
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.2s;
+  padding: 15px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
+.input:first-child {
+  margin-top: 230px; 
+}
+
+.input:not(:first-child) {
+  margin-top: 10px; 
+}
+
+
+/* List */
+/* ------------------------------------------------------------------ */
+.List-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  gap: 2rem;
+  margin-left: 20px; 
+}
+.List-header {
+  display: ruby;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+  width: 15%;
+  position: absolute; 
+  left: 60px;
+  top: 90px;
+}
+/* List */
+/* ------------------------------------------------------------------ */
+
+/* NavBar buttons */
+/* ------------------------------------------------------------------ */
+
+.navBut-link{
+  display: inline-block; 
+  margin-right: 10px; 
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; 
+  text-decoration: none; 
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
+  border: none;
+}
+
+.navBut-link:hover {
+  color: #007bff;
+  background-color: #ffffff;
+
+}
+.navBut-link:not(:last-child) {
+  margin-right: 20px; 
+}
+
+.navBut-container {
+  display: flex; 
+  right: 90px;
+  gap: 10px; 
+}

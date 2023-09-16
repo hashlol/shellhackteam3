@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "create-react-app": "^5.0.1",
+    "firebase": "^10.4.0",
+    "firebase-admin": "^11.10.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^3.4.0"
+  }
+}
