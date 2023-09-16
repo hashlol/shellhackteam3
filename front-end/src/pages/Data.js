@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetDataStream, setFile, addFile, removeFileFromName, GetData } from '../BackEndFuncs';
+import { GetDataStream, setFile, addFile, removeFileFromName, GetData, getKey } from '../BackEndFuncs';
 import { Link } from "react-router-dom";
 
 var name;
@@ -17,6 +17,7 @@ function DeleteButton({ buttonText }) {
     <button className="button-link" onClick={() => removeFileFromName(name)}>{buttonText}</button>
   );
 }
+
 
 export default function () {
   const names = GetDataStream();

@@ -15,8 +15,8 @@ export function GetDataStream() {
   return usernames;
 }
 
-export const GetData = async () => {
-  const colRef = collection(db, "users")
+export const GetData = async (name) => {
+  const colRef = collection(db, name)
   const snapshot = await getDocs(colRef);
   return snapshot;
 }
@@ -49,9 +49,16 @@ export const setFile = async (id, name) => {
   const payload = { Name: name };
   await setDoc(docRef, payload)
 }
+export const getKey = async () => {
+  var key = "hello";
+  var names = (await GetData("api")).docs;
+  key = names[0].data().code;
+  return key;
+
+}
 
 const openai = new OpenAI({
-  apiKey: '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',dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
+  apiKey: await getKey(),dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
 });
 
 async function main(msg) {
@@ -62,6 +69,8 @@ async function main(msg) {
 
   console.log(completion.choices[0].message.content);
 }
+
+
 
 export function req(msg){
     main(msg)
