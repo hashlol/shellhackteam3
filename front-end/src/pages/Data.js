@@ -21,7 +21,6 @@ function DeleteButton({ buttonText }) {
 
 export default function () {
   const names = GetDataStream();
-  const [inputValue, setInputValue] = useState('');
 
   return (
     <div className = 'List-container'>

@@ -101,7 +101,7 @@ const conversationHistory = [];
 
 export async function sendMessage(userMessage) {
   conversationHistory.push({ role: 'user', content: userMessage });
-  AddDataSub('users','logs','salman',userMessage)
+  AddDataSub('users','logs','tobe',userMessage)
 
   try {
     const completion = await openai.chat.completions.create({
@@ -114,7 +114,7 @@ export async function sendMessage(userMessage) {
 
     // Add the assistant's reply to the conversation history
     conversationHistory.push({ role: 'assistant', content: assistantReply });
-    AddDataSub('users','logs','salman',assistantReply)
+    AddDataSub('users','logs','hash',assistantReply)
 
     return assistantReply;
   } catch (error) {
