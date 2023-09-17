@@ -101,7 +101,7 @@ const conversationHistory = [];
 
 export async function sendMessage(userMessage) {
   conversationHistory.push({ role: 'user', content: userMessage });
-  AddDataSub('users','logs','tobe',userMessage)
+  AddDataSub('users','logs','toddddbe',userMessage)
 
   try {
     const completion = await openai.chat.completions.create({
