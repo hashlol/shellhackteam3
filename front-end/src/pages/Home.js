@@ -20,7 +20,6 @@ function App() {
     </header>
     
     <body className='test'>
-<<<<<<< HEAD
     <div>
  
     <div className="logbox">
@@ -45,6 +44,7 @@ function App() {
         </ul><ul className= 'element'>
           <p> monkey</p>
         </ul>
+        <button> f</button>
         
         <Overlay isVisible={isOverlayVisible} />
       </div>
@@ -60,7 +60,6 @@ function App() {
         <p>This is some content.</p>
       </div>
       
-=======
       <div className="logbox">
         <div className="element-container">
 
@@ -71,7 +70,6 @@ function App() {
       </div>
       
 
->>>>>>> 841a758be6b5a286b20c13860aa1d16365ce092a
     </body>
     </div>
 
