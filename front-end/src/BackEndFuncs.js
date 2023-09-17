@@ -1,4 +1,4 @@
-import { onSnapshot, collection, setDoc, doc, addDoc, deleteDoc, getDocs } from "@firebase/firestore";
+import { onSnapshot, collection, setDoc, doc, addDoc, deleteDoc, getDocs, query, orderBy,serverTimestamp } from "@firebase/firestore";
 import { useEffect, useState } from "react";
 import OpenAI from "openai";
 import db from "./firebase";
@@ -14,11 +14,47 @@ export function GetDataStream() {
   );
   return usernames;
 }
-
 export const GetData = async (name) => {
   const colRef = collection(db, name)
   const snapshot = await getDocs(colRef);
   return snapshot;
+}
+export const GetDataSub = async (name,name2,userName) => {
+  const parentCollectionRef = collection(db, name);
+  var users = (await GetData(name)).docs
+  var id;
+  users.forEach((user) => {
+    if (user.data().Name === userName) {
+      id = user.id
+    } 
+  });
+  const parentDocumentRef = doc(parentCollectionRef, id);
+  const subCollectionRef = collection(parentDocumentRef, name2);
+  const q = query(subCollectionRef, orderBy('timeStamp', 'asc'));
+  const snapshot = (await getDocs(q)).docs;
+  snapshot.forEach((log) => {
+    console.log(log.data())
+  });
+}
+
+export const AddDataSub = async (name,name2,userName,log)=>{
+  const parentCollectionRef = collection(db, name);
+  var users = (await GetData(name)).docs
+  var id;
+  users.forEach((user) => {
+    if (user.data().Name === userName) {
+      id = user.id
+    } 
+  });
+  const parentDocumentRef = doc(parentCollectionRef, id);
+  const subCollectionRef = collection(parentDocumentRef, name2);
+
+
+  const payload = { 
+    message: log,
+    timeStamp: serverTimestamp(),
+   };
+  await addDoc(subCollectionRef, payload)
 }
 
 export const addFile = async (name) => {
@@ -65,6 +101,7 @@ const conversationHistory = [];
 
 export async function sendMessage(userMessage) {
   conversationHistory.push({ role: 'user', content: userMessage });
+  AddDataSub('users','logs','salman',userMessage)
 
   try {
     const completion = await openai.chat.completions.create({
@@ -77,6 +114,7 @@ export async function sendMessage(userMessage) {
 
     // Add the assistant's reply to the conversation history
     conversationHistory.push({ role: 'assistant', content: assistantReply });
+    AddDataSub('users','logs','salman',assistantReply)
 
     return assistantReply;
   } catch (error) {
