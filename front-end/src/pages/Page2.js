@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { sendMessage } from "./../BackEndFuncs"
+import { sendMessage, GetDataSub, AddDataSub } from "./../BackEndFuncs"
 var start = false;
 // async function getAns(x){
 //   var answer = await sendMessage(x)
@@ -92,8 +92,7 @@ const App = () => {
       <button onClick={startConvo}>Start</button>
       <button onClick={stopConvo}>Stop</button>
       <button onClick={resetTranscript}>Reset</button>
-      <button onClick={() => getAns(transcript)}>get answer</button>
-      <button>speak</button>
+      <button onClick={() =>GetDataSub('users','logs','salman')}>get logs</button>
       <p>{transcript}</p>
       <p id="answer"></p>
     </div>
