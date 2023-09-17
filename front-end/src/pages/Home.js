@@ -6,9 +6,77 @@ function App() {
   return (
 
     <div>
-    <div className="chatbox">
-      <div className="message-container">
-        
+    <div className="logbox">
+      <div className="element-container">
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul>
+          <ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul><ul className= 'element'>
+            <p> monkey</p>
+          </ul>
       </div>
 
       

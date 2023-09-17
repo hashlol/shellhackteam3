@@ -12,9 +12,7 @@ code {
     monospace;
 }
 
-.background{
-  background-color: #333;
-}
+
 /* NAVBAR */
 /* ------------------------------------------------------------------ */
 nav{
@@ -211,63 +209,20 @@ input[type="text"] {
   gap: 10px; 
 }
 
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #007bff;
-  padding: 10px;
-  color: #fff;
-}
-
-/* Style for the left and right elements */
-.nav-element {
-  padding: 10px;
-  font-weight: bold;
-}
-
-/* Style for the image in the center */
-.nav-image {
-  max-width: 100px;
-  height: auto;
-}
-
 /* NavBar buttons */
 /* ================================================ */
 
 
-/* CHATBOX */
-/* ================================================ */
 
-.chatbox {
-  width: 50%;
-  height: 20%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: auto; /* Center horizontally */
-  margin-top: 40vh; /* Adjust the percentage to position it vertically */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-}
 
 /* Message Container */
-.message-container {
-  max-height: 50%;
-  overflow-y: scroll;
-  padding: 2%; /* Changed from 10px to percentage */
-}
 
-/* Individual Message */
 .message {
   background-color: #f2f2f2;
   border-radius: 5px;
-  padding: 1%; /* Changed from 8px to percentage */
-  margin-bottom: 2%; /* Changed from 10px to percentage */
-  max-width: 70%; /* Adjust based on your design */
+  padding: 1%; 
+  margin-bottom: 2%; 
+  max-width: 70%;
   word-wrap: break-word;
 }
 
@@ -285,6 +240,7 @@ input[type="text"] {
   padding: 1%; /* Changed from 8px to percentage */
   border: 1px solid #ccc;
   border-radius: 5px;
+  top: 50%;
   outline: none;
 }
 
@@ -303,8 +259,60 @@ button:hover {
   background-color: #0056b3;
 }
 
+
+
 /* CHATBOX */
 /* ================================================ */
+
+.logbox {
+  background-color: #333;
+  width: 90%;
+  height: 20%;
+  border: 3px solid #006eb7;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Center vertically */
+  align-items: flex-start; /* Center horizontally */
+  top: 60%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.logbox:hover{
+  background-color: #2d2f30;
+  transition: transform 1.2 ease;
+}
+.element-container::-webkit-scrollbar-thumb {
+  background-color: #006eb7;
+  border-radius: 4px;
+}
+
+
+.element{
+  left: 30%;
+  width: 2%; 
+  margin: 10px 0; 
+  display: flex;
+  text-align: center; 
+  color:#fff;
+  padding: 5px; 
+}
+.element:hover{
+  transition: transform 0.3s ease;
+  transform: scale(1.2);
+}
+
+.element-container {
+  max-height: 50%;
+  padding: 2%; 
+}
+
+/* CHATBOX */
+/* ================================================ */
+
 
 
 

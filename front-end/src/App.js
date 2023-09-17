@@ -6,7 +6,6 @@ import Data from './pages/Data'
 import Page2 from './pages/Page2'
 import {NavBar} from './navBar'
 
-
 function App() {
 
   return (  
@@ -15,7 +14,7 @@ function App() {
       <div className='Link-header'>
       <NavBar />
       <div >
-      <img src="front-end\public\image.png" alt="logo"></img>
+      <img src='./front-end/public/image' alt="logo"></img>
       </div>
       </div>
         <Routes>

@@ -21,12 +21,11 @@ function DeleteButton({ buttonText }) {
 
 export default function () {
   const names = GetDataStream();
+  const [inputValue, setInputValue] = useState('');
+
   return (
     <div className = 'List-container'>
-        <span className="List-header">
-            <p><strong> List of strings added</strong></p>
-        </span>
-        <p> <strong>Data adder</strong> </p>
+        <p> <strong>Input username</strong> </p>
         <input type="text" onChange={getValName} />
         <ul class="names ">
           {names.map(name => (
@@ -36,6 +35,7 @@ export default function () {
           ))}
         </ul>
     <div>
+
 
         <HomeButton buttonText={"Add To Database"} />
         <DeleteButton buttonText={"Remove from Database"} />
