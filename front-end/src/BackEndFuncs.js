@@ -3,11 +3,22 @@ import { useEffect, useState } from "react";
 import OpenAI from "openai";
 import db from "./firebase";
 
-export function GetDataStream() {
+export const GetDataStream = async (name,name2,userName) => {
   const [usernames, setUsers] = useState([])
+  const parentCollectionRef = collection(db, name);
+  var users = (await GetData(name)).docs
+  var id;
+  users.forEach((user) => {
+    if (user.data().Name === userName) {
+      id = user.id
+    } 
+  });
+  const parentDocumentRef = doc(parentCollectionRef, id);
+  const subCollectionRef = collection(parentDocumentRef, name2);
+
   useEffect(
     () =>
-      onSnapshot(collection(db, "users"), (snapshot) =>
+      onSnapshot(subCollectionRef, (snapshot) =>
         setUsers(snapshot.docs.map((doc) => doc.data()))
       ),
     []
@@ -32,9 +43,7 @@ export const GetDataSub = async (name,name2,userName) => {
   const subCollectionRef = collection(parentDocumentRef, name2);
   const q = query(subCollectionRef, orderBy('timeStamp', 'asc'));
   const snapshot = (await getDocs(q)).docs;
-  snapshot.forEach((log) => {
-    console.log(log.data())
-  });
+  return snapshot.data();
 }
 
 export const AddDataSub = async (name,name2,userName,log)=>{

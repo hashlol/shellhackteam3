@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GetData, addFile } from './../BackEndFuncs.js';
+import { GetData, addFile, GetDataStream } from './../BackEndFuncs.js';
 import Overlay from './../signin.js';
 
 function App() {
@@ -30,11 +30,11 @@ function App() {
     console.log(created);
     if (created) {
       setLogin(true); // Update login state to true
-    }else{
+    } else {
       alert("This is not an account. Please create an account")
     }
   }
-   
+
   async function createuser() {
     var created = false;
     var users = (await GetData('users')).docs;
@@ -46,13 +46,14 @@ function App() {
     console.log(created);
     if (created) {
       alert("This Username is already taken. Please choose a differnt one")
-    }else{
+    } else {
       addFile(nameofuser)
       setLogin(true)
     }
   }
 
   if (!login) {
+    
     return (
       <div className='login'>
         <textarea onChange={getUserName} id='logintext' className='logintext'></textarea>
@@ -61,6 +62,7 @@ function App() {
       </div>
     );
   } else {
+    const logs = GetDataStream('users','logs',nameofuser)
     return (
       <div>
         <header>
@@ -69,7 +71,17 @@ function App() {
         <body>
           <div className='test'>
             <div className='logbox'>
-              <div className='element-container'></div>
+              <div className='element-container'>
+                <div className="chat-container">
+                  <ul className="chat-list">
+                    {logs.map((log) => (
+                      <li>
+                        {log.message}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
               <button className='speakBut'>Speak</button>
             </div>
           </div>

@@ -415,3 +415,31 @@ header {
     display: flex;
   }
 }
+.chat-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-list li {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.chat-left {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.chat-right {
+  background-color: #2ecc71;
+  align-self: flex-end;
+  color: white;
+}
