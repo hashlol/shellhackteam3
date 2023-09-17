@@ -335,13 +335,12 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 1); /* Semi-transparent black */
-  z-index: 9999; /* Ensure it's on top of other elements */
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 9999; 
 }
 .content {
-  position: relative; /* Needed for z-index to work */
-  z-index: 10000; /* Higher than the overlay's z-index */
-  /* Add any other styling as needed */
+  position: relative; 
+  z-index: 10000; 
 }
 .login{
   position: relative;
@@ -350,19 +349,39 @@ body{
   height: 100vh;
 }
 .signinbut{
-  position: relative;
-  top: 50%;
-  bottom: 50%;
+  position: absolute;
+  top: 56%;  
+  right: 58.6%;
+  width: 150px;
+  height: 60px
+
 }
 .createbut{
-  position: relative;
-  top: 50%;
-  bottom: 50%;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  position: absolute;
+  right: 42%;
+  top: 56%;
 }
 .logintext{
-  position: relative;
-  top: 50%;
-  bottom: 50%;
+  width: 400px;
+  height: 30px;
+  position: absolute;
+  
+  right: 42%;
+  top: 47%;
+}
+
+.pText{
+  left: 29.5%;
+  width: 500px; 
+  position: absolute;
+  text-decoration-style: wavy;
+  right: 42%;
+  top: 30%;
+  text-align: center; 
+  color:#fff;
 }
 
 /* CHATBOX */

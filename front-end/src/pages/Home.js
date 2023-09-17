@@ -56,8 +56,9 @@ function App() {
     
     return (
       <div className='login'>
-        <textarea onChange={getUserName} id='logintext' className='logintext'></textarea>
-        <button onClick={signin} className='signinbut'>sign in</button>
+        <p className='pText'> Please sign in or create user 😊</p>
+        <input onChange={getUserName} id='logintext' className='logintext'></input>
+        <button onClick={signin} className='signinbut'>Sign in</button>
         <button onClick={createuser} className='createbut'>Create User</button>
       </div>
     );
@@ -81,6 +82,8 @@ function App() {
                     ))}
                   </ul>
                 </div>
+              
+                <p>test</p>
               </div>
               <button className='speakBut'>Speak</button>
             </div>
