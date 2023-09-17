@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GetData, addFile } from './../BackEndFuncs.js';
 import Overlay from './../signin.js';
-
+import image from './../image.png';
 function App() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(true);
   const [login, setLogin] = useState(false); // Use state to track login status
@@ -30,11 +30,11 @@ function App() {
     console.log(created);
     if (created) {
       setLogin(true); // Update login state to true
-    }else{
+    } else {
       alert("This is not an account. Please create an account")
     }
   }
-   
+
   async function createuser() {
     var created = false;
     var users = (await GetData('users')).docs;
@@ -45,8 +45,8 @@ function App() {
     });
     console.log(created);
     if (created) {
-      alert("This Username is already taken. Please choose a differnt one")
-    }else{
+      alert("This Username is already taken. Please choose a different one")
+    } else {
       addFile(nameofuser)
       setLogin(true)
     }
@@ -54,31 +54,53 @@ function App() {
 
   if (!login) {
     return (
+      <div>
+      <nav className='nav1' style={{ position: 'relative' }}>
+      <img src={image} alt="Image" className="myImage" />
+      </nav>
+
       <div className='login'>
-        <p className='pText'> Please sign in or create user 😊</p>
+        
+        <p className='pText'> <strong> Please sign in or create a user 😊</strong></p>
         <input onChange={getUserName} id='logintext' className='logintext'></input>
         <button onClick={signin} className='signinbut'>Sign in</button>
         <button onClick={createuser} className='createbut'>Create User</button>
-      </div>
+      </div></div>
     );
   } else {
     return (
       <div>
-        <header>
-          <img src={require('./image.png').default} alt='image' />
-        </header>
+            <nav className='nav' style={{ position: 'relative' }}>
+  <       img src={image} alt="Image" style={{ position: 'absolute', top: '0rem', left: '0.9rem', width: '6rem', height: '5rem' }} />
+        </nav>
+
+
+    
         <body>
           <div className='test'>
             <div className='logbox'>
-              <div className='element-container'>
-                <p>test</p>
+              <div className='input'>
+                <li className= 'text-bubble-AI'>test</li>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-AI'>test</p>
+                <p className= 'text-bubble-user'>test</p>
               </div>
               <button className='speakBut'>Speak</button>
             </div>
           </div>
         </body>
-
-
       </div>
     );
   }
