@@ -14,8 +14,13 @@ function App() {
   };
 
   return (
+    <div>
+    <header>
+      <img src = './image.png' alt = 'image'/> 
+    </header>
     
     <body className='test'>
+<<<<<<< HEAD
     <div>
  
     <div className="logbox">
@@ -55,7 +60,21 @@ function App() {
         <p>This is some content.</p>
       </div>
       
+=======
+      <div className="logbox">
+        <div className="element-container">
+
+        
+
+        </div>
+        <button className = 'speakBut'> Speak </button>
+      </div>
+      
+
+>>>>>>> 841a758be6b5a286b20c13860aa1d16365ce092a
     </body>
+    </div>
+
   );
 }
 
