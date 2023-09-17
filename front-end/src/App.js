@@ -11,12 +11,12 @@ function App() {
   return (  
     <div className="App" >
       <HashRouter hashType='slash'>
-      <div className='Link-header'>
-      <NavBar />
+      
+      
       <div >
       <img src='./front-end/public/image' alt="logo"></img>
       </div>
-      </div>
+      
         <Routes>
         
           <Route path="/" className = 'Home' element={<Home/>} />

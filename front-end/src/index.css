@@ -213,7 +213,11 @@ input[type="text"] {
 /* ================================================ */
 
 
-
+/* .test{
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+} */
 
 /* Message Container */
 
@@ -293,7 +297,7 @@ button:hover {
 
 .element{
   left: 30%;
-  width: 2%; 
+  width: 20px; 
   margin: 10px 0; 
   display: flex;
   text-align: center; 
@@ -312,7 +316,7 @@ button:hover {
 
 @media (max-width: 768px) {
   .logbox {
-    width: 90%; 
+    width: 20%; 
     height: auto; 
     max-height: none; 
   }
