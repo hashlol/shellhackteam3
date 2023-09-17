@@ -44,6 +44,7 @@ function App() {
         </ul><ul className= 'element'>
           <p> monkey</p>
         </ul>
+        <button> f</button>
         
         <Overlay isVisible={isOverlayVisible} />
       <div className="logbox">
@@ -67,6 +68,16 @@ function App() {
         <p>This is some content.</p>
       </div>
       
+      <div className="logbox">
+        <div className="element-container">
+
+        
+
+        </div>
+        <button className = 'speakBut'> Speak </button>
+      </div>
+      
+
     </body>
   );
 }
