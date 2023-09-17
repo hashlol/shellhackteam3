@@ -341,49 +341,56 @@ body{
 .content {
   position: relative; 
   z-index: 10000; 
+}html {
+  font-size: 16px; /* Set a base font size for root elements */
 }
-.login{
+
+.login {
   position: relative;
-  margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.signinbut{
-  position: absolute;
-  top: 56%;  
-  right: 58.6%;
-  width: 150px;
-  height: 60px
 
-}
-.createbut{
-  width: 150px;
-  height: 60px;
+.signinbut,
+.createbut,
+.logintext,
+.pText {
+  width: 30rem; /* Adjust the width as needed */
+  position: relative;
   text-align: center;
-  position: absolute;
-  right: 42%;
-  top: 56%;
-}
-.logintext{
-  width: 400px;
-  height: 30px;
-  position: absolute;
-  
-  right: 42%;
-  top: 47%;
 }
 
-.pText{
-  left: 29.5%;
-  width: 500px; 
-  position: absolute;
-  text-decoration-style: wavy;
-  right: 42%;
-  top: 30%;
-  text-align: center; 
-  color:#fff;
+.signinbut,
+.createbut {
+  margin: 1rem auto; /* Center horizontally with a small margin */
+  width: 20rem; /* Adjust the width as needed */
+  height: auto; /* Let the height adapt to content */
 }
 
+.signinbut {
+  top: 4.45rem;
+  right: 13rem; /* Adjust the top position as needed */
+}
+
+.createbut {
+  top: -.48rem; /* Adjust the top position as needed */
+  right: -13rem;
+}
+
+.logintext {
+  top: 4.8rem; /* Adjust the top position as needed */
+  height: 3rem; /* Let the height adapt to content */
+  text-wrap: pretty;
+}
+
+.pText {
+  top: 6rem; 
+  color:#f9f9f9;
+}
 /* CHATBOX */
 /* ================================================ */
 
