@@ -19,13 +19,14 @@ nav{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
+  text-align:center;
+  background-color: #FE6912ff ;
 
 }
 
 .nav-title{
   font-size: 1.5rem;
-  margin: 1rem;
+  margin: 1px;
   font-weight: bold;
   text-decoration: none;
   color:white;
@@ -152,31 +153,7 @@ input[type="text"] {
 }
 
 
-/* List */
-/* ------------------------------------------------------------------ */
-.List-container {
-  display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  height: 100vh; 
-  gap: 2rem;
-  margin-left: 20px; 
-}
-.List-header {
-  display: ruby;
-  text-align: center;
-  background-color: #007bff;
-  color: white;
-  padding: 5px;
-  font-weight: bold;
-  width: 15%;
-  position: absolute; 
-  left: 60px;
-  top: 90px;
-}
-/* List */
-/* ------------------------------------------------------------------ */
+
 
 /* NavBar buttons */
 /* ------------------------------------------------------------------ */
@@ -234,29 +211,32 @@ input[type="text"] {
   background-color: #fff;
 }
 
-/* Input Field */
 input[type="text"] {
   flex: 1;
-  padding: 1%; /* Changed from 8px to percentage */
+  padding: 1%; 
   border: 1px solid #ccc;
   border-radius: 5px;
   top: 50%;
   outline: none;
 }
 
-/* Send Button */
 button {
-  background-color: #007bff;
+  background-color: #FE6912ff;
   color: #fff;
   border: none;
+  margin: 0 auto;
   border-radius: 5px;
   padding: 1% 2%; /* Changed from pixels to percentage */
   cursor: pointer;
 }
 
-/* Send Button Hover */
 button:hover {
-  background-color: #0056b3;
+  background-color: rgb(236, 98, 18);
+  transform: scale(1.05);
+}
+button.toggled {
+  background-color: rgb(236, 98, 18);
+  transform: scale(1.05);
 }
 
 
@@ -265,10 +245,10 @@ button:hover {
 /* ================================================ */
 
 .logbox {
-  background-color: #333;
+  background-color: #2d2f30;
   width: 1300px;
-  height: 500px;
-  border: 3px solid #006eb7;
+  height: 600px;
+  border: 1px solid #FE6912ff;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -278,8 +258,12 @@ button:hover {
   justify-content: flex-start; /* Center vertically */
   align-items: flex-start; /* Center horizontally */
   top: 60%;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+}
+.logbox section{
+    background-color: #2d2f30;
+
 }
 .logbox:hover{
   background-color: #2d2f30;
@@ -327,7 +311,7 @@ button:hover {
     width: 100%; 
   }
   .element:hover {
-    transform: scale(1); 
+    transform: scale(1.1); 
   }
 }
 
@@ -338,10 +322,61 @@ button:hover {
 }
 
 body{
-  background-color: wheat;
+  background-color: #2d2f30;
+}
+.speakBut{
+  position: absolute; 
+  top: 90%;
+  left: 47.5%;
 }
 
 /* CHATBOX */
 /* ================================================ */
 
 
+
+header {
+  background-color: #2d2f30;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px; 
+  
+}
+
+.header-logo {
+  max-width: 20px;
+  height: auto;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+}
+
+.bar {
+  width: 3px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+}
+
+.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
