@@ -12,7 +12,9 @@ code {
     monospace;
 }
 
-
+.background{
+  background-color: #333;
+}
 /* NAVBAR */
 /* ------------------------------------------------------------------ */
 nav{
@@ -183,7 +185,7 @@ input[type="text"] {
 
 .navBut-link{
   display: inline-block; 
-  margin-right: 10px; 
+  justify-content: center;
   background-color: #007bff; 
   color: #fff; 
   padding: 10px 20px; 
@@ -191,7 +193,6 @@ input[type="text"] {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: 20px;
   border: none;
 }
 
@@ -210,27 +211,100 @@ input[type="text"] {
   gap: 10px; 
 }
 
-/* Media query for screens smaller than 768px */
-@media (max-width: 768px) {
-  /* Adjust font sizes and margins */
-  p {
-    font-size: 14px;
-  }
-
-  /* Make the input bar wider for better touch input */
-  input {
-    width: 70%;
-  }
-
-  /* Increase spacing between buttons */
-  .button-link {
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-
-  /* Reposition elements if needed */
-  .List-header {
-    left: 10px;
-    top: 20px;
-  }
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px;
+  color: #fff;
 }
+
+/* Style for the left and right elements */
+.nav-element {
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Style for the image in the center */
+.nav-image {
+  max-width: 100px;
+  height: auto;
+}
+
+/* NavBar buttons */
+/* ================================================ */
+
+
+/* CHATBOX */
+/* ================================================ */
+
+.chatbox {
+  width: 50%;
+  height: 20%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: auto; /* Center horizontally */
+  margin-top: 40vh; /* Adjust the percentage to position it vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+/* Message Container */
+.message-container {
+  max-height: 50%;
+  overflow-y: scroll;
+  padding: 2%; /* Changed from 10px to percentage */
+}
+
+/* Individual Message */
+.message {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 1%; /* Changed from 8px to percentage */
+  margin-bottom: 2%; /* Changed from 10px to percentage */
+  max-width: 70%; /* Adjust based on your design */
+  word-wrap: break-word;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 2%; /* Changed from 10px to percentage */
+  background-color: #fff;
+}
+
+/* Input Field */
+input[type="text"] {
+  flex: 1;
+  padding: 1%; /* Changed from 8px to percentage */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Send Button */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 1% 2%; /* Changed from pixels to percentage */
+  cursor: pointer;
+}
+
+/* Send Button Hover */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* CHATBOX */
+/* ================================================ */
+
+
+
