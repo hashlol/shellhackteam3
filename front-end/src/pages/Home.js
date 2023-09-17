@@ -20,7 +20,6 @@ function App() {
     </header>
     
     <body className='test'>
-<<<<<<< HEAD
     <div>
  
     <div className="logbox">
@@ -47,20 +46,6 @@ function App() {
         </ul>
         
         <Overlay isVisible={isOverlayVisible} />
-      </div>
-      
-      
-      
-      
-    
-    
-    </div></div>
-    <div className="content">
-        <button onClick={hideOverlay}>Button 1</button>
-        <p>This is some content.</p>
-      </div>
-      
-=======
       <div className="logbox">
         <div className="element-container">
 
@@ -70,11 +55,19 @@ function App() {
         <button className = 'speakBut'> Speak </button>
       </div>
       
+      
+      
+      
+    
+    
+    </div></div>
+    <div className="content">
 
->>>>>>> 841a758be6b5a286b20c13860aa1d16365ce092a
+        <button onClick={hideOverlay}>Button 1</button>
+        <p>This is some content.</p>
+      </div>
+      
     </body>
-    </div>
-
   );
 }
 
