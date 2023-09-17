@@ -29,12 +29,12 @@ export const addFile = async (name) => {
 
 export const removeFileFromName = async (nameToDel) => {
   var id = 0;
-  var names = (await GetData()).docs;
+  var names = (await GetData("users")).docs;
 
   names.forEach((name) => {
     if (name.data().Name === nameToDel) {
       id = name.id
-    }
+    } 
   });
 
   if (id !== 0) {
@@ -61,20 +61,31 @@ const openai = new OpenAI({
   apiKey: await getKey(),dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
 });
 
-async function main(msg) {
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: 'user', content: msg }],
-    model: 'gpt-3.5-turbo',
-  });
+const conversationHistory = [];
 
-  console.log(completion.choices[0].message.content);
+export async function sendMessage(userMessage) {
+  conversationHistory.push({ role: 'user', content: userMessage });
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: conversationHistory,
+    });
+
+    // Extract the assistant's reply from the response
+    const assistantReply = completion.choices[0].message.content;
+
+    // Add the assistant's reply to the conversation history
+    conversationHistory.push({ role: 'assistant', content: assistantReply });
+
+    return assistantReply;
+  } catch (error) {
+    console.error('Error sending message:', error);
+    return 'An error occurred';
+  }
 }
 
 
-
-export function req(msg){
-    main(msg)
-}
 
 
 
