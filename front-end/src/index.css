@@ -119,7 +119,7 @@ input:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 input[type="text"] {
-  color: #333;
+  color: #1A1A1Eff;
 }
 .container {
   display: flex;
@@ -132,26 +132,50 @@ input[type="text"] {
 }
 .input {
   width: 100%;
-  max-width: 300px; 
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
+  max-width: 80rem; 
+  max-height: 30rem;
+  background-color:#007bff;
+  padding: 1rem;
+  font-size: 1rem;
+  top: 30%;
+  border: 0px solid #ccc;
   border-radius: 5px;
-  outline: none;
+  outline: white;
   transition: border-color 0.2s;
   padding: 15px; 
-  background-color: #f9f9f9; 
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
 }
 
 .input:first-child {
-  margin-top: 230px; 
+  top: 14.375rem; 
 }
 
 .input:not(:first-child) {
-  margin-top: 10px; 
+  top: 0.625rem; 
 }
 
+.text-bubble-AI {
+  background-color: #FE6912ff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  right:-50;
+  margin-left: 30rem;
+  margin-bottom: 1rem;
+  text-align: end;
+  /* Add other styling for text bubbles */
+}
+
+.text-bubble-user {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  margin-right: 30rem;
+  margin-bottom: 1rem;
+  right: 5rem;
+  text-align: start;
+  /* Add other styling for text bubbles */
+}
 
 
 
@@ -245,7 +269,7 @@ button.toggled {
 /* ================================================ */
 
 .logbox {
-  background-color: #2d2f30;
+  background-color: #1A1A1Eff;
   width: 1300px;
   height: 600px;
   border: 1px solid #FE6912ff;
@@ -262,31 +286,27 @@ button.toggled {
   overflow-x: hidden;
 }
 .logbox section{
-    background-color: #2d2f30;
+    background-color: #1A1A1Eff;
 
 }
 .logbox:hover{
-  background-color: #2d2f30;
+  background-color: #1A1A1Eff;
   transition: transform 1.2 ease;
 }
 .element-container::-webkit-scrollbar-thumb {
-  background-color: #006eb7;
+  background-color: #1A1A1Eff ;
   border-radius: 4px;
 }
 
 
 .element{
-  left: 30%;
-  width: 20px; 
-  margin: 10px 0; 
+  left: 5rem;
+  width: 3rem; 
+  margin: 1rem 0; 
   display: flex;
   text-align: center; 
   color:#fff;
   padding: 5px; 
-}
-.element:hover{
-  transition: transform 0.3s ease;
-  transform: scale(1.2);
 }
 
 .element-container {
@@ -322,12 +342,12 @@ button.toggled {
 }
 
 body{
-  background-color: #2d2f30;
+  background-color: #1A1A1Eff;
 }
 .speakBut{
   position: absolute; 
-  top: 90%;
-  left: 47.5%;
+  bottom: -3rem;
+  left: 44.8rem;
 }
 .overlay {
   position: fixed;
@@ -341,56 +361,66 @@ body{
 .content {
   position: relative; 
   z-index: 10000; 
+}html {
+  font-size: 16px; /* Set a base font size for root elements */
 }
-.login{
+
+.login {
   position: relative;
-  margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.signinbut{
-  position: absolute;
-  top: 56%;  
-  right: 58.6%;
-  width: 150px;
-  height: 60px
 
-}
-.createbut{
-  width: 150px;
-  height: 60px;
+.signinbut,
+.createbut,
+.logintext,
+.pText {
+  width: 30rem; /* Adjust the width as needed */
+  position: relative;
   text-align: center;
-  position: absolute;
-  right: 42%;
-  top: 56%;
-}
-.logintext{
-  width: 400px;
-  height: 30px;
-  position: absolute;
-  
-  right: 42%;
-  top: 47%;
 }
 
-.pText{
-  left: 29.5%;
-  width: 500px; 
-  position: absolute;
-  text-decoration-style: wavy;
-  right: 42%;
-  top: 30%;
-  text-align: center; 
-  color:#fff;
+.signinbut,
+.createbut {
+  margin: 1rem auto; 
+  width: 20rem; 
+  height: auto; 
 }
 
+.signinbut {
+  top: 4.45rem;
+  right: 13rem; 
+}
+
+.createbut {
+  top: -.48rem;
+  right: -13rem;
+}
+
+.logintext {
+  top: 4.8rem;
+  height: 3rem;
+}
+
+.pText {
+  font-size: 12px;
+  top: 6rem; 
+  color:#f9f9f9;
+}
 /* CHATBOX */
 /* ================================================ */
 
-
+.log{
+  height: 3rem;
+  top: 2rem;
+}
 
 header {
-  background-color: #2d2f30;
+  background-color: #1A1A1Eff;
   display: flex;
   text-align: center;
   justify-content: space-between;
@@ -410,7 +440,7 @@ header {
   flex-direction: column;
 }
 
-.bar {
+.bar{
   width: 3px;
   height: 3px;
   background-color: #fff;
@@ -434,6 +464,7 @@ header {
     display: flex;
   }
 }
+<<<<<<< HEAD
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -484,4 +515,29 @@ li {
   background-color: #2196F3;
   color: #fff;
   align-self: flex-end;
+=======
+
+.nav{
+  background-color: #1A1A1Eff;
+  width: 2rem;
+  height: 6rem;
+  margin: 0 auto;
+}
+
+.nav1{
+  background-color: #1A1A1Eff;
+  width: 2rem;
+  height: 3rem;
+  margin: 0 auto;
+}
+
+.myImage{
+position: absolute;
+top: 2rem;
+left:0rem;
+width: 6rem;
+height: 5rem;
+
+
+>>>>>>> 9186f3aa18a6ea8bfdbcc958b1799fcedd00c30b
 }
