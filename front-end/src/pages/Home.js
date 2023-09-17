@@ -138,35 +138,31 @@ const App = () => {
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
-  if (!login) {
+  if (false) {
     return (
-      <div>
-      <nav className='nav1' style={{ position: 'relative' }}>
-      <img src={image} alt="Image" className="myImage" />
-      </nav>
-
-      <div className='login'>
-        
-        <p className='pText'> <strong> Please sign in or create a user 😊</strong></p>
-        <input onChange={getUserName} id='logintext' className='logintext'></input>
-        <button onClick={signin} className='signinbut'>Sign in</button>
-        <button onClick={createuser} className='createbut'>Create User</button>
-      </div></div>
+      <></>
     );
   } else {
     return (
       <div>
-            <nav className='nav' style={{ position: 'relative' }}>
+        {/* <nav className='nav' style={{ position: 'relative' }}>
   <       img src={image} alt="Image" style={{ position: 'absolute', top: '0rem', left: '0.9rem', width: '6rem', height: '5rem' }} />
-        </nav>
+        </nav> */}
 
 
-    
+
         <body>
           <div className='test'>
             <div className='logbox'>
               <div className='input'>
-                <li className= 'text-bubble-AI'>test</li>
+                <ul className="chat-list">
+                  {messages.map((message, index) => (
+                    <li key={index} className={index % 2 === 0 ? 'text-bubble-AI' : 'text-bubble-user'}>
+                      {message}
+                    </li>
+                  ))}
+                </ul>
+                {/* <li className= 'text-bubble-AI'>test</li>
                 <p className= 'text-bubble-user'>test</p>
                 <p className= 'text-bubble-AI'>test</p>
                 <p className= 'text-bubble-user'>test</p>
@@ -181,9 +177,9 @@ const App = () => {
                 <p className= 'text-bubble-AI'>test</p>
                 <p className= 'text-bubble-user'>test</p>
                 <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
+                <p className= 'text-bubble-user'>test</p> */}
               </div>
-              <button className='speakBut'>Speak</button>
+              <button className='speakBut' onClick={startConvo}>Speak</button>
             </div>
           </div>
         </body>
