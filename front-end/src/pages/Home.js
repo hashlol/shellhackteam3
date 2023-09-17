@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { GetData, addFile, UseSubcollectionLiveData, GetDataSub } from './../BackEndFuncs.js';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { sendMessage } from "./../BackEndFuncs"
+import image from './../image.png';
 var start = false;
 
 
 const App = () => {
   const [messages, setArray] = useState([])
 
+  
   console.log(id)
   var logs;
   var id;
@@ -75,7 +77,9 @@ const App = () => {
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition
-  } = useSpeechRecognition();
+  } = useSpeechRecognition({
+    continuous: true,
+  });
 
 
 
@@ -86,6 +90,7 @@ const App = () => {
       const utterance = new SpeechSynthesisUtterance(text);
       if (!start) {
         synthesis.cancel();
+        synthesis.speak(new SpeechSynthesisUtterance("STOP"))
         return;
       }
       synthesis.cancel(); // Cancel any previous speech
@@ -125,15 +130,23 @@ const App = () => {
   };
 
   function startConvo() {
-    start = true;
-    SpeechRecognition.startListening()
+    if(start){
+      start = false;
+      handleSpeak("sdsd")
+    }else{
+      const synthesis = window.speechSynthesis;
+      synthesis.speak(new SpeechSynthesisUtterance("START"))
+      start = true;
+      SpeechRecognition.startListening()
+    }
+    
   }
-  function stopConvo() {
-    start = false;
-    SpeechRecognition.stopListening()
-    handleSpeak("sdsd")
+  console.log(GetDataSub('users','logs','salman'))
+  function resetArray(){
+    setArray([])
+    const synthesis = window.speechSynthesis;
+      synthesis.speak(new SpeechSynthesisUtterance("TRANSCRIPT CLEARED"))
   }
-
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
@@ -145,9 +158,14 @@ const App = () => {
   } else {
     return (
       <div>
-        {/* <nav className='nav' style={{ position: 'relative' }}>
-  <       img src={image} alt="Image" style={{ position: 'absolute', top: '0rem', left: '0.9rem', width: '6rem', height: '5rem' }} />
-        </nav> */}
+        <nav className='nav' style={{ position: 'relative' }}>
+         <img src={image} alt="Image" style={{ position: 'absolute', top: '0rem', left: '0rem', width: '6rem', height: '5rem' }} />
+                <button className='speakBut' onClick={startConvo}>Speak | Stop</button>
+                <h1 className = 'speak'> <strong>VAI-BOT </strong></h1>
+                <h1 className = 'speakIndent'> <i>Information for all</i> </h1>
+
+                <button className='resetBut' onClick={resetArray}>Reset transcript</button>
+        </nav>
 
 
 
@@ -156,30 +174,15 @@ const App = () => {
             <div className='logbox'>
               <div className='input'>
                 <ul className="chat-list">
+
                   {messages.map((message, index) => (
                     <li key={index} className={index % 2 === 0 ? 'text-bubble-AI' : 'text-bubble-user'}>
                       {message}
                     </li>
                   ))}
                 </ul>
-                {/* <li className= 'text-bubble-AI'>test</li>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p>
-                <p className= 'text-bubble-AI'>test</p>
-                <p className= 'text-bubble-user'>test</p> */}
+                
               </div>
-              <button className='speakBut' onClick={startConvo}>Speak</button>
             </div>
           </div>
         </body>
