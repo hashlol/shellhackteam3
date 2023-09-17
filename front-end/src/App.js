@@ -6,13 +6,21 @@ import Data from './pages/Data'
 import Page2 from './pages/Page2'
 import {NavBar} from './navBar'
 
+
 function App() {
-  return (
-    <div className="App" style={{ background: 'white' }}>
+
+  return (  
+    <div className="App" >
       <HashRouter hashType='slash'>
+      <div className='Link-header'>
       <NavBar />
+      <div >
+      <img src="front-end\public\image.png" alt="logo"></img>
+      </div>
+      </div>
         <Routes>
-          <Route path="/" element={<Home/>} />
+        
+          <Route path="/" className = 'Home' element={<Home/>} />
           <Route path="/about" element={<About/>} />
 
           <Route path="/data" element={<Data/>} />
@@ -22,8 +30,6 @@ function App() {
       </HashRouter>
     </div>
   );
-
-
 
 }
 
