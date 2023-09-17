@@ -42,12 +42,15 @@ export const GetDataSub = async (name,name2,userName) => {
   const parentDocumentRef = doc(parentCollectionRef, id);
   const subCollectionRef = collection(parentDocumentRef, name2);
   const q = query(subCollectionRef, orderBy('timeStamp', 'asc'));
-  const snapshot = (await getDocs(q)).docs;
-  return snapshot.data();
+  const snapshot = (await getDocs(q))
+  const data = snapshot.docs.map((doc) => doc.data());
+  return data;
+
 }
 
 export const AddDataSub = async (name,name2,userName,log)=>{
   const parentCollectionRef = collection(db, name);
+  
   var users = (await GetData(name)).docs
   var id;
   users.forEach((user) => {
@@ -111,7 +114,7 @@ const conversationHistory = [];
 
 export async function sendMessage(userMessage,user) {
   conversationHistory.push({ role: 'user', content: userMessage });
-  AddDataSub('users','logs',user,userMessage)
+  //AddDataSub('users','logs',user,userMessage)
 
   try {
     const completion = await openai.chat.completions.create({
@@ -124,7 +127,7 @@ export async function sendMessage(userMessage,user) {
 
     // Add the assistant's reply to the conversation history
     conversationHistory.push({ role: 'assistant', content: assistantReply });
-    AddDataSub('users','logs',user,assistantReply)
+   // AddDataSub('users','logs',user,assistantReply)
 
     return assistantReply;
   } catch (error) {
@@ -132,7 +135,25 @@ export async function sendMessage(userMessage,user) {
     return 'An error occurred';
   }
 }
+export function UseSubcollectionLiveData(parentCollection, parentDocId, subcollection) {
+  const [data, setData] = useState([]);
+  
+  useEffect(() => {
+    const parentCollectionRef = collection(db, parentCollection);
+    const parentDocumentRef = doc(parentCollectionRef, parentDocId);
+    const subCollectionRef = collection(parentDocumentRef, subcollection);
+    const q = query(subCollectionRef); // You can add more query conditions if needed
 
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const newData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setData(newData);
+    });
+
+    return () => unsubscribe(); // Clean up the listener when the component unmounts
+  }, [db, parentCollection, parentDocId, subcollection]);
+
+  return data;
+}
 
 
 
