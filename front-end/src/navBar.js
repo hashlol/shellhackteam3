@@ -6,6 +6,9 @@ export const NavBar = () => {
     return (
         <nav className='nav'>
             <li>
+            <header>
+        <img src={require('./pages/image.png').default} alt="" />
+      </header>
             <Link to="/">
                     <button className='navBut-link'>
                         Home

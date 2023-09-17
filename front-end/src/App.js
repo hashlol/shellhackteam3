@@ -9,22 +9,17 @@ import {NavBar} from './navBar'
 function App() {
 
   return (  
-    <div className="App" >
-      <HashRouter hashType='slash'>
-      <div className='Link-header'>
+    <div>
+    <HashRouter hashType="slash">
       
-      </div>
-        <Routes>
-        
-          <Route path="/" className = 'login' element={<Home/>} />
-          <Route path="/about" element={<About/>} />
-
-          <Route path="/data" element={<Data/>} />
-
-          <Route path="/page2" element={<Page2/>} />
-        </Routes>
-      </HashRouter>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/data" element={<Data />} />
+        <Route path="/page2" element={<Page2 />} />
+      </Routes>
+    </HashRouter>
+  </div>
   );
 
 }

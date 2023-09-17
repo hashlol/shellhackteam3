@@ -343,6 +343,27 @@ body{
   z-index: 10000; /* Higher than the overlay's z-index */
   /* Add any other styling as needed */
 }
+.login{
+  position: relative;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+}
+.signinbut{
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+}
+.createbut{
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+}
+.logintext{
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+}
 
 /* CHATBOX */
 /* ================================================ */

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import Overlay from './../signin.js'
-
+import { GetData, addFile } from './../BackEndFuncs.js';
+import Overlay from './../signin.js';
 
 function App() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(true);
+  const [login, setLogin] = useState(false); // Use state to track login status
+  const [nameofuser, setNameofuser] = useState(''); // Use state to store user's name
 
   const showOverlay = () => {
     setIsOverlayVisible(true);
@@ -13,70 +15,70 @@ function App() {
     setIsOverlayVisible(false);
   };
 
-  return (
-    <div>
-    <header>
-      <img src = './image.png' alt = 'image'/> 
-    </header>
-    
-    <body className='test'>
-    <div>
- 
-    <div className="logbox">
-      <div className="element-container">
-      <ul className= 'element'>
-          <p> monkey</p>
-        </ul>
-        <ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul><ul className= 'element'>
-          <p> monkey</p>
-        </ul>
-        <button> f</button>
-        
-        <Overlay isVisible={isOverlayVisible} />
+  const getUserName = (event) => {
+    setNameofuser(event.target.value);
+  };
+
+  async function signin() {
+    var created = false;
+    var users = (await GetData('users')).docs;
+    users.forEach((user) => {
+      if (user.data().Name === nameofuser) {
+        created = true;
+      }
+    });
+    console.log(created);
+    if (created) {
+      setLogin(true); // Update login state to true
+    }else{
+      alert("This is not an account. Please create an account")
+    }
+  }
+   
+  async function createuser() {
+    var created = false;
+    var users = (await GetData('users')).docs;
+    users.forEach((user) => {
+      if (user.data().Name === nameofuser) {
+        created = true;
+      }
+    });
+    console.log(created);
+    if (created) {
+      alert("This Username is already taken. Please choose a differnt one")
+    }else{
+      addFile(nameofuser)
+      setLogin(true)
+    }
+  }
+
+  if (!login) {
+    return (
+      <div className='login'>
+        <textarea onChange={getUserName} id='logintext' className='logintext'></textarea>
+        <button onClick={signin} className='signinbut'>sign in</button>
+        <button onClick={createuser} className='createbut'>Create User</button>
       </div>
-      
-      
-      
-      
-    
-    
-    </div></div>
-    <div className="content">
-        <button onClick={hideOverlay}>Button 1</button>
-        <p>This is some content.</p>
+    );
+  } else {
+    return (
+      <div>
+        <header>
+          <img src={require('./image.png').default} alt='image' />
+        </header>
+        <body>
+          <div className='test'>
+            <div className='logbox'>
+              <div className='element-container'></div>
+              <button className='speakBut'>Speak</button>
+            </div>
+          </div>
+        </body>
+
+
       </div>
-      
-      <div className="logbox">
-        <div className="element-container">
-
-        
-
-        </div>
-        <button className = 'speakBut'> Speak </button>
-      </div>
-      
-
-    </body>
-    </div>
-
-  );
+    );
+  }
 }
-
-
-
 
 export default App;
