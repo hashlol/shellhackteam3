@@ -36,8 +36,8 @@ export default function () {
     <div>
 
 
-        <HomeButton buttonText={"Add To Database"} />
-        <DeleteButton buttonText={"Remove from Database"} />
+        <HomeButton buttonText={"Create username"} />
+        <DeleteButton buttonText={"Login with username"} />
         
         </div>
     </div>

@@ -213,11 +213,7 @@ input[type="text"] {
 /* ================================================ */
 
 
-/* .test{
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-} */
+
 
 /* Message Container */
 
@@ -333,6 +329,16 @@ button:hover {
   .element:hover {
     transform: scale(1); 
   }
+}
+
+.test{
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body{
+  background-color: wheat;
 }
 
 /* CHATBOX */
