@@ -266,7 +266,7 @@ button:hover {
 
 .logbox {
   background-color: #333;
-  width: 90%;
+  width: 1200px;
   height: 20%;
   border: 3px solid #006eb7;
   border-radius: 5px;
@@ -310,9 +310,28 @@ button:hover {
   padding: 2%; 
 }
 
+@media (max-width: 768px) {
+  .logbox {
+    width: 90%; 
+    height: auto; 
+    max-height: none; 
+  }
+  .logbox:hover {
+    transition: transform 0.8s ease; 
+  }
+  .element-container {
+    padding: 1%; 
+  }
+  .element {
+    left: 0; 
+    width: 100%; 
+  }
+  .element:hover {
+    transform: scale(1); 
+  }
+}
+
 /* CHATBOX */
 /* ================================================ */
-
-
 
 
